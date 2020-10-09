@@ -28,7 +28,7 @@ function posicaoAleatoria(){
 
     let covidinho = document.createElement('img'); // Elemento HTML 
     covidinho.src = '../image/covidinho.png'; // Caminho da imagem
-    covidinho.className = tamanhosCovidinho(); // Acessa os estilos através do DOM
+    covidinho.className = tamanhosCovidinho() + ' ' + olharEsquerdaDireita(); // Acessa os estilos através do DOM. Aplicando duas class
 
     //CSS
     covidinho.style.left =  `${eixoX}px`;
@@ -39,7 +39,7 @@ function posicaoAleatoria(){
     document.body.appendChild(covidinho); // Insere um filho no DOM
     console.log(`Eixo X: ${eixoX} e Eixo Y: ${eixoY}`);
 
-    console.log(tamanhosCovidinho());
+    console.log(olharEsquerdaDireita());
 }
 posicaoAleatoria();
 
@@ -55,4 +55,15 @@ function tamanhosCovidinho(){ // Terá três tamanhos de vírus
         case 2:
             return 'covidinho3'
     } // Como o 'return' é considerado o fim da function, não necessita do 'break'
+}
+
+function olharEsquerdaDireita() {
+    let classes = Math.floor(Math.random() * 2); // Terá duas classes
+
+    switch(classes){
+        case 0:
+            return 'esquerda'
+        case 1:
+            return 'direita'
+    }
 }
